@@ -64,9 +64,9 @@
   notify: restart bind
   tags: zones
 
-- name: Copy webdomains zone files
-  template: src=db.webdomains.j2 dest={{ bind_masterzones_path }}/db.{{ item.name }} owner={{ bind_user }} group={{ bind_group }} mode=0644 validate='named-checkconf %s'
-  with_items: bind_config_master_zones
+- name: Copy webdomain zone files
+  template: src=db.webdomains.j2 dest={{ bind_base_zones_path }}/{{ bind_webdomainzones_path }}/db.{{ item.name }} owner={{ bind_user }} group={{ bind_group }} mode=0644 validate='named-checkconf %s'
+  with_items: bind_config_webdomain_zones
   notify: restart bind
   tags: zones
 
