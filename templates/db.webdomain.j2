@@ -9,9 +9,9 @@ $TTL    4h
                             2d            ; minimum caching time in case of failed lookups (2 days)
                             )
             IN      NS      {{ ansible_hostname }}.
-
-{% for master in bind_config_webdomain_zones %}
-            IN      A       {{ webserver }}
-www         IN      A       {{ webserver }}
+{% for webdomain_zone in bind_config_webdomain_zones %}
+{% for zone in webdomain_zone.zones %}
+            IN      A       {{ zone.webserver }}
+www         IN      A       {{ zone.webserver }}
 {% endfor %}
-
+{% endfor %}
