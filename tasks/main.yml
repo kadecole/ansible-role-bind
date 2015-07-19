@@ -44,7 +44,7 @@
   - master
   - slave
   - forward
-  - webdomains
+  - webdomain
   notify: reload bind
   tags: configuration
 
