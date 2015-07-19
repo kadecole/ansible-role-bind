@@ -10,6 +10,6 @@ $TTL    4h
                             )
             IN      NS      {{ ansible_hostname }}.
 {% for webdomain_zone in bind_config_webdomain_zones %}
-            IN      A       {{ webdomains_zone.webserver }}
-www         IN      A       {{ webdomains_zone.webserver }}
+            IN      A       {{ webdomain_zone.webserver }}
+www         IN      A       {{ webdomain_zone.webserver }}
 {% endfor %}
