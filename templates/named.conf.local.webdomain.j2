@@ -4,7 +4,7 @@
 {% for zone in webdomains_zone.zones %}
 zone "{{ zone }}" {
     type master;
-    file "{{bind_base_zones_path}}/{{bind_webdomainzones_path}}/db.{{ zone }}";
+    file "{{bind_base_zones_path}}/{{bind_webdomainzones_path}}/db.{{ name }}";
 };
 {% endfor %}
 {% endfor %}
