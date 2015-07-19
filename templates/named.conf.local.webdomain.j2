@@ -1,0 +1,15 @@
+## {{ ansible_managed }}
+{% for webdomains_zone in bind_config_webdomains_zones %}
+######## {{ webdomains_zone.name }} ({{ webdomains_zone.zones|count }} zones)
+{% for zone in webdomains_zone.zones %}
+zone "{{ zone }}" {
+    type webdomains;
+    file "{{bind_base_zones_path}}/{{bind_webdomainszones_path}}/db.{{ zone }}";
+    masters {
+{% for master in webdomains_zone.masters %}
+          {{ master }};
+{% endfor %}
+    };
+};
+{% endfor %}
+{% endfor %}

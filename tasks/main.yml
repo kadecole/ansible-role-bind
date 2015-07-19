@@ -35,6 +35,7 @@
   with_items:
   - masters
   - slaves
+  - webdomains
   tags: configuration
 
 - name: setup zones
@@ -43,6 +44,7 @@
   - master
   - slave
   - forward
+  - webdomains
   notify: reload bind
   tags: configuration
 
@@ -58,6 +60,12 @@
 
 - name: Copy master zone files
   copy: src={{ bind_masterzones_path }}/db.{{ item.name }} dest={{ bind_base_zones_path }}/{{bind_masterzones_path}} owner={{ bind_user }} group={{ bind_group }}
+  with_items: bind_config_master_zones
+  notify: restart bind
+  tags: zones
+
+- name: Copy webdomains zone files
+  template: src=db.webdomains.j2 dest={{ bind_masterzones_path }}/db.{{ item.name }} owner={{ bind_user }} group={{ bind_group }} mode=0644 validate='named-checkconf %s'
   with_items: bind_config_master_zones
   notify: restart bind
   tags: zones
