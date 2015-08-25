@@ -3,4 +3,4 @@ bind_user: bind
 bind_group: bind
 bind_pkgs:
   - bind99
-  - dnsutils
+  - bind-tools
