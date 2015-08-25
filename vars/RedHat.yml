@@ -1,4 +1,5 @@
 ---
+bind_config_basepath: /etc/bind
 bind_pkg_state: present
 bind_user: named
 bind_group: named
