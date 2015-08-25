@@ -9,7 +9,6 @@ bind_config_forward_zones: []
 bind_service_name: bind9
 bind_service_state: started
 bind_service_enabled: yes
-bind_pkg_state: installed
 bind_root_filename: db.root
 bind_pid_file_name: '/var/run/named/named.pid'
 bind_cache_path: '/var/cache/bind'
