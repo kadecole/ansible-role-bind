@@ -1,4 +1,6 @@
 ---
+bind_user: named
+bind_group: named
 bind_pkgs:
   - bind9
   - dnsutils
