@@ -19,6 +19,3 @@ bind_base_zones_path: '/var/lib/bind'
 bind_masterzones_path: 'masters'
 bind_slavezones_path: 'slaves'
 bind_webdomainzones_path: 'webdomains'
-bind_pkgs:
-  - bind9
-  - dnsutils

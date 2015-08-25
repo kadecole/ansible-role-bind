@@ -1,0 +1,4 @@
+---
+bind_pkgs:
+  - bind9
+  - dnsutils

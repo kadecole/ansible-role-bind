@@ -1,21 +1,11 @@
 ---
-- name: install bind packages (RedHat)
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: install bind packages
   yum: pkg={{ item }} state={{ bind_pkg_state }}
   with_items: bind_pkgs
   tags: package
-  when: ansible_os_family == 'RedHat'
-
-- name: install bind packages (Debian)
-  apt: pkg={{ item }} state={{ bind_pkg_state }}
-  with_items: bind_pkgs
-  tags: package
-  when: ansible_os_family == 'Debian'
-
-- name: install bind packages (FreeBSD)
-  pkgng: pkg={{ item }} state=present
-  with_items: bind_pkgs
-  tags: package
-  when: ansible_os_family == 'FreeBSD'
 
 - name: setup files
   copy: src={{ item }} dest={{ bind_config_basepath }}/{{ item }} owner={{ bind_user }} group={{ bind_group }}
