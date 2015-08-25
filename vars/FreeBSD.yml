@@ -3,5 +3,5 @@ bind_pkg_state: installed
 bind_user: bind
 bind_group: bind
 bind_pkgs:
-  - bind99
+  - bind910
   - bind-tools
